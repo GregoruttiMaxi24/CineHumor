@@ -1,0 +1,581 @@
+/* ============================================================
+   CineHumor Admin — Hoja de Estilos
+   Usa las variables definidas en ../css/estilos.css (:root)
+   ============================================================ */
+
+body {
+    margin: 0;
+    background: var(--color-fondo);
+    font-family: var(--font-body);
+    color: var(--color-texto);
+}
+
+/* ===========================
+   SIDEBAR
+=========================== */
+
+.admin-sidebar {
+    width: 280px;
+    min-width: 270px;
+    background: var(--color-fondo-card);
+    border-right: 1px solid var(--color-borde);
+    color: var(--color-texto);
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--sombra);
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+@media (max-width: 1199px) {
+    .admin-sidebar {
+        width: 220px;
+        min-width: 220px;
+    }
+}
+
+.sidebar-header {
+    padding: 30px;
+    border-bottom: 1px solid var(--color-borde);
+}
+
+.sidebar-header h2 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    margin-bottom: .3rem;
+    color: var(--color-acento);
+}
+
+.sidebar-header span {
+    color: var(--color-texto-suave);
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.sidebar-nav a {
+    color: var(--color-texto-suave);
+    text-decoration: none;
+    padding: 14px 25px;
+    transition: var(--transicion);
+    border-left: 4px solid transparent;
+    font-weight: 500;
+}
+
+.sidebar-nav a:hover {
+    background: var(--color-fondo-elevado);
+    color: var(--color-acento);
+    border-left-color: var(--color-acento);
+}
+
+.sidebar-footer {
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+    border-top: 1px solid var(--color-borde);
+}
+
+.sidebar-footer a {
+    color: var(--color-texto-suave);
+    text-decoration: none;
+    padding: 15px 25px;
+    transition: var(--transicion);
+}
+
+.sidebar-footer a:hover {
+    background: var(--color-fondo-elevado);
+    color: var(--color-acento);
+}
+
+/* ===========================
+   CONTENIDO / LAYOUT
+=========================== */
+
+.admin-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+.admin-main {
+    flex: 1;
+    padding: 35px;
+    overflow: auto;
+    min-width: 0; /* evita que el contenido empuje el ancho del flex y rompa el layout */
+}
+
+@media (max-width: 991px) {
+    .admin-main {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 575px) {
+    .admin-main {
+        padding: 14px;
+    }
+}
+
+.offcanvas {
+    --bs-offcanvas-width: 220px;
+    background: var(--color-fondo-card) !important;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, .35);
+}
+
+.offcanvas .offcanvas-header {
+    border-bottom: 1px solid var(--color-borde) !important;
+}
+
+.offcanvas-body.p-0 {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100% - 0px);
+}
+
+.offcanvas-body .sidebar-header,
+.offcanvas-body .sidebar-nav,
+.offcanvas-body .sidebar-footer {
+    color: var(--color-texto);
+}
+
+.offcanvas-body .sidebar-footer {
+    margin-top: auto;
+}
+
+@media (max-width: 991px) {
+    .offcanvas .sidebar-header {
+        display: none;
+    }
+}
+
+/* navbar mobile superior */
+.navbar.bg-dark {
+    background-color: var(--color-fondo-card) !important;
+    border-bottom: 1px solid var(--color-borde);
+}
+
+/* ===========================
+   TÍTULOS Y CABECERAS
+=========================== */
+
+.admin-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 4vw, 1.8rem);
+    color: var(--color-texto);
+}
+
+/* h1 generico dentro del admin-main (vistas que no usan .admin-title) */
+.admin-main h1 {
+    font-size: clamp(1.5rem, 4vw, 2.6rem);
+    word-break: break-word;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.dashboard-date {
+    background: var(--color-fondo-card);
+    border: 1px solid var(--color-borde);
+    padding: 12px 20px;
+    border-radius: var(--radio);
+    box-shadow: var(--sombra-card);
+    font-weight: 600;
+    color: var(--color-texto-suave);
+}
+
+@media (max-width: 768px) {
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+}
+
+/* ===========================
+   DASHBOARD CARDS
+=========================== */
+
+.dashboard-card {
+    background: var(--color-fondo-card);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-grande);
+    padding: 30px;
+    height: 100%;
+    text-align: center;
+    box-shadow: var(--sombra-card);
+    transition: var(--transicion);
+}
+
+.dashboard-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--color-acento);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, .35);
+}
+
+.dashboard-icon {
+    width: 80px;
+    height: 80px;
+    margin: auto;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    background: var(--color-acento);
+    color: #1a1200;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.dashboard-card h5 {
+    color: var(--color-texto-suave);
+    font-weight: 600;
+}
+
+.dashboard-card h2 {
+    font-family: var(--font-display);
+    font-size: 2.7rem;
+    margin: 20px 0;
+    color: var(--color-texto);
+}
+
+.dashboard-card span {
+    color: var(--color-acento);
+    font-weight: bold;
+}
+
+/* ===========================
+   ACCESOS RÁPIDOS
+=========================== */
+
+.quick-card {
+    background: var(--color-fondo-card);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-grande);
+    padding: 30px 20px;
+    text-align: center;
+    height: 100%;
+    transition: var(--transicion);
+    box-shadow: var(--sombra-card);
+    text-decoration: none;
+    display: block;
+}
+
+.quick-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--color-acento);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, .35);
+}
+
+.quick-icon {
+    width: 65px;
+    height: 65px;
+    margin: auto;
+    margin-bottom: 20px;
+    background: var(--color-fondo-elevado);
+    border: 1px solid var(--color-borde);
+    color: var(--color-acento);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+}
+
+.quick-card h5 {
+    margin: 0;
+    color: var(--color-texto);
+    font-weight: 600;
+}
+
+/* ===========================
+   TABLAS
+=========================== */
+
+.admin-table-container {
+    background: var(--color-fondo-card);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-grande);
+    overflow: hidden;
+}
+
+.admin-table-container .table-responsive {
+    border-radius: var(--radio-grande);
+}
+
+.admin-table {
+    color: var(--color-texto);
+    margin-bottom: 0;
+    min-width: 560px; /* asegura que en mobile haga scroll horizontal en vez de aplastarse */
+    --bs-table-color: var(--color-texto);
+    --bs-table-bg: transparent;
+    --bs-table-border-color: var(--color-borde);
+    --bs-table-striped-color: var(--color-texto);
+    --bs-table-striped-bg: var(--color-fondo-elevado);
+    --bs-table-active-color: var(--color-texto);
+    --bs-table-active-bg: var(--color-fondo-elevado);
+    --bs-table-hover-color: var(--color-texto);
+    --bs-table-hover-bg: var(--color-fondo-elevado);
+}
+
+.admin-table > :not(caption) > * > * {
+    color: var(--color-texto);
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.admin-table thead {
+    background-color: var(--color-fondo-elevado);
+}
+
+.admin-table thead th {
+    color: var(--color-texto-suave);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+    border-bottom: 1px solid var(--color-borde);
+}
+
+.admin-table tbody tr {
+    border-bottom: 1px solid var(--color-borde);
+    transition: var(--transicion);
+}
+
+.admin-table tbody tr:hover {
+    background-color: var(--color-fondo-elevado);
+}
+
+.admin-table tbody td {
+    color: var(--color-texto);
+    vertical-align: middle;
+}
+
+.admin-table img {
+    width: 70px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: var(--radio);
+    border: 1px solid var(--color-borde);
+}
+
+.admin-poster {
+    width: 56px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: var(--radio);
+    border: 1px solid var(--color-borde);
+}
+
+.admin-table .badge.bg-secondary {
+    background-color: var(--color-fondo-elevado) !important;
+    border: 1px solid var(--color-borde);
+    color: var(--color-texto-suave);
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+
+    .admin-table {
+        font-size: .9rem;
+    }
+
+    .btn-sm {
+        font-size: .8rem;
+    }
+
+    .admin-table thead {
+        display: none;
+    }
+
+    .admin-table,
+    .admin-table tbody,
+    .admin-table tr,
+    .admin-table td {
+        display: inline-block;
+        width: 100%;
+    }
+
+    .admin-table tr {
+        background: var(--color-fondo-card);
+        border: 1px solid var(--color-borde);
+        border-radius: var(--radio-grande);
+        margin-bottom: 1rem;
+        padding: 1rem;
+    }
+
+    .admin-table td {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        padding: 0.4rem 0;
+        border: none;
+        border-bottom: 1px solid var(--color-borde);
+        font-size: 0.85rem;
+    }
+
+    .admin-table td:last-child {
+        border-bottom: none;
+    }
+
+    .admin-table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: var(--color-texto-suave);
+    }
+}
+
+/* ===========================
+   FORMULARIOS (sobreescribe Bootstrap)
+=========================== */
+
+.admin-main .form-control,
+.admin-main .form-select {
+    background-color: var(--color-fondo-elevado);
+    border: 1px solid var(--color-borde);
+    color: var(--color-texto);
+    border-radius: var(--radio);
+    padding: 0.65rem 1rem;
+}
+
+.admin-main .form-control::placeholder {
+    color: var(--color-texto-muy-suave);
+}
+
+.admin-main .form-control:focus,
+.admin-main .form-select:focus {
+    background-color: var(--color-fondo-elevado);
+    border-color: var(--color-acento);
+    color: var(--color-texto);
+    box-shadow: 0 0 0 3px rgba(232, 168, 56, 0.15);
+}
+
+.admin-main label {
+    color: var(--color-texto-suave);
+    font-weight: 600;
+    font-size: 0.875rem;
+    letter-spacing: 0.02em;
+}
+
+.admin-main .form-check-label {
+    color: var(--color-texto);
+    font-weight: 400;
+}
+
+.admin-main .form-check-input {
+    background-color: var(--color-fondo-elevado);
+    border: 1px solid var(--color-borde);
+}
+
+.admin-main .form-check-input:checked {
+    background-color: var(--color-acento);
+    border-color: var(--color-acento);
+}
+
+.admin-main .container.p-5 {
+    background: var(--color-fondo-card);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-grande);
+    max-width: 720px;
+}
+
+/* ===========================
+   BOTONES (sobreescribe colores Bootstrap)
+   Se mantiene la convención semántica:
+   éxito = guardar, peligro = eliminar,
+   advertencia = editar, primario = agregar
+=========================== */
+
+.admin-main .btn,
+.admin-main .btn:focus {
+    border-radius: var(--radio);
+    font-weight: 600;
+    transition: var(--transicion);
+    border: none;
+    box-shadow: none;
+}
+
+.admin-main .btn-success {
+    background-color: var(--color-acento);
+    color: #1a1200;
+}
+
+.admin-main .btn-success:hover {
+    background-color: var(--color-acento-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(232, 168, 56, 0.25);
+}
+
+.admin-main .btn-primary {
+    background-color: var(--color-acento);
+    color: #1a1200;
+}
+
+.admin-main .btn-primary:hover {
+    background-color: var(--color-acento-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(232, 168, 56, 0.25);
+}
+
+.admin-main .btn-secondary {
+    background-color: var(--color-fondo-elevado);
+    border: 1px solid var(--color-borde);
+    color: var(--color-texto);
+}
+
+.admin-main .btn-secondary:hover {
+    background-color: var(--color-borde);
+    color: var(--color-texto);
+}
+
+.admin-main .btn-warning {
+    background-color: transparent;
+    border: 1px solid var(--color-acento);
+    color: var(--color-acento);
+}
+
+.admin-main .btn-warning:hover {
+    background-color: var(--color-acento);
+    color: #1a1200;
+}
+
+.admin-main .btn-danger {
+    background-color: transparent;
+    border: 1px solid var(--color-error);
+    color: var(--color-error);
+}
+
+.admin-main .btn-danger:hover {
+    background-color: var(--color-error);
+    color: #fff;
+}
+
+/* botón de logout/login en el navbar mobile y alertas */
+.admin-main .alert {
+    background-color: var(--color-fondo-elevado);
+    border: 1px solid var(--color-borde);
+    color: var(--color-texto);
+    border-radius: var(--radio);
+}
+
+.admin-main .alert-danger {
+    border-color: var(--color-error);
+    color: var(--color-error);
+}
+
+.admin-main .alert-success {
+    border-color: var(--color-exito);
+    color: var(--color-exito);
+}
+
+.admin-main .alert-warning {
+    border-color: var(--color-acento);
+    color: var(--color-acento);
+}
